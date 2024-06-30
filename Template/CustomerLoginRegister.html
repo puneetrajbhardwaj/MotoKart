@@ -1,0 +1,602 @@
+<style>
+    /* ------------------------------------ BASE --------------------------------- */
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;    
+}
+
+/* =================================== Base Stuff ============================= */
+:root{
+    /* ===== Colors ===== */
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+
+.base{
+    height: 100vh;
+    width: 100%;
+       
+    background-color: var(--body-color);        
+    /* primary - color -^- */
+    position: absolute;    
+} 
+
+
+/* -------------------------------- LOGIN FORM BOX --------------------------------- */
+
+.form-box{
+    height: 460px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin: 7% 4% ;
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 10px 20px 10px rgba(255, 255, 255, 0.1);
+    border: 0.5px solid rgba(255,255, 255, 0.3);
+    padding: 5px;
+    left: 45%;
+    top: 2%;
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+}
+
+
+.cont{
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to left , rgba(255, 255, 255,0.03), transparent);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transform: skewX(45deg) translateX(0);    
+    transition: 0.5s; 
+}
+
+.logo{
+    align-items: center;
+    padding: 10px;
+    display: flex;
+}
+
+.label1{
+    color: aquamarine;
+}
+
+
+.button-box{
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2rem);
+    border: none;
+}
+
+.toggle-btn{
+    margin: auto;
+    width: 49%;
+    padding: 10px 10px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    position: relative;
+    color: white;
+    align-items: center;
+    font-weight: 500;
+}
+
+.logo-img1{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 30px;
+}
+
+/* .toggle-btn:nth-child(1){
+    color: black;
+} */
+/* ^^^ Does not work. reason unknown  */
+
+#butn{
+    top: 0;
+    left: 0;
+    position: absolute;
+    border: none;
+    width: 49%;
+    height: 100%;
+    background: linear-gradient(to left bottom , rgba(255,255,255,0.25), rgba(255,255,255,0.56));
+    border-radius: 10px;
+    backdrop-filter: blur(80px);
+    transition: 0.5s;
+}
+
+.form-1{
+    top: 120px;
+    left: 20px;
+    position: absolute;
+    width: 280px;
+    transition: 0.5s;
+    margin: 10px 0;
+}
+
+.input-field{
+    width: 100%;
+    padding: 10px 5px;
+    margin: 10px 0;
+    border-radius: 100px;
+    outline: none;
+    background: linear-gradient(to left bottom , rgba(255,255,255,0.25), rgba(255,255,255,0.56));
+}
+
+#login{
+    left: 20px;
+}
+
+#register{
+    left: 520px;
+}
+
+/* --------------------------------- Button and its animations --------------------------------- */
+.btn{
+    position: absolute;
+    width: 155px;
+    height: 50px;
+    margin: 50px 70px;
+}
+
+.btn button{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border: None;
+    border-radius: 30px;
+    color: #fff;
+    text-decoration: none;
+    z-index: 1;
+    font-weight: 400;
+    letter-spacing: 1px;
+    overflow: hidden;
+    transition: 0.5s;
+    backdrop-filter: blur(15px);
+}
+/* 
+.btn:hover button{
+    letter-spacing: 3px;
+} 
+
+.btn button::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(255,255,255,0.15), transparent);
+    transform: skewX(45deg) translateX(0);    
+    transition: 0.5s;
+}
+
+.container .btn:hover button::before{
+    transform: skewX(45deg) translateX(200%);
+}
+
+.btn:hover::before{
+    bottom: 0;
+    height: 50%;
+    width: 80%;
+    border-radius: 30px;
+    transition-delay: 0.5s; 
+
+}*/
+
+body{
+  min-height: 100%;
+  background: transparent;
+  backdrop-filter:blur(15px);
+  /* background-size: cover;
+  background-position: center; */
+  overflow: hidden;
+}  
+
+    .navtop{
+      display: flex;
+      align-items: flex-start;
+    }
+    #frame{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 90.2%;
+      width:81.7%;
+      border: none;
+      overflow: hidden;
+    }
+
+    .side-bar .menu{
+     /* width: 100%; */
+      height: 90%;
+      overflow: auto;
+       /* margin-top: 80px; */
+      }
+
+</style> 
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- <link rel="stylesheet" href="/static/CSS/home.css"> -->
+    <link rel="stylesheet" href="/static/CSS/style.css">
+    <link rel="stylesheet" href="/static/CSS/homepage.css">
+    <!-- <link rel="stylesheet" href="/static/CSS/customerloginregister.css"> -->
+    <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="base">
+        <!-- <div class="nav">
+            <div class="nav-bg"></div> 
+            <div class="website-id">
+                <img src="/static/images/logo.jpeg" class="logo-img">
+                <a><b>MOTOKART</b></a>
+            </div>
+            <ul>
+                <li>
+                    <input type="text" placeholder="search">
+                    <i class="bx bx-search icon"></i>
+                    
+                </li>
+      
+                <li>
+                    <i class="bx bxs-home icon"></i>
+                    <span>Home</span>
+                </li>
+      
+                <li>
+                  <a href="#" target="frame">
+                    <i class="bx bxs-category icon"></i>
+                    <span>Categories</span>
+                  </a>
+                </li> 
+                
+      
+                <li>
+                    <i class="bx bxs-info-circle icon"></i>
+                    <span>About</span>
+                </li>
+      
+                <li>
+                    <i class="bx bxs-cog icon"></i>
+                    <span>options</span>
+                </li>
+                
+                <li>
+                  <a href="/customerloginregister" >
+                    <i class="bx bxs-user icon"></i>
+                    <span>Login</span>
+                  </a>
+                </li>
+            </ul>
+          </div> -->
+       
+        <!-- <div class="images">
+            <img src="/static/images/pattern.png" alt="">
+            <img src="/static/images/Luxury-Car.png" alt="">
+        </div> -->
+        
+        <div class="form-box">
+            <div class="cont"></div>
+
+            <div class="logo">
+                <img src="/static/images/logo.jpeg" class="logo-img1">
+                <font class="label1"><b>MOTOKART</b></font>
+            </div>
+
+            <div class="button-box">
+                <div id="butn"></div>
+                <button class="toggle-btn" onclick="login()">Login</button>
+                <button class="toggle-btn" onclick="register()">Register</button>
+            </div>
+
+            <form id = "login" action="/checkcustomerlogin" target="_parent" class="form-1" method="post" enctype="application/x-www-form-urlencoded"> {% csrf_token %}
+                <input type="text" class="input-field" placeholder="Username" name="username" pattern="[A-Z a-z0-9]{1,}" required oninvalid="this.setCustomValidity('User ID can take alphanumeric characters only and first letter should be alphabet')">
+                <input type="password" class="input-field" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="password" required >
+                
+                <div class="container">
+                    <div class="btn"><button type="submit">Sign In</button></div>
+                    <div id="msgl" name="msgl">{{msgl}}</div>
+                </div>
+            </form>
+
+            <form id = "register" action="/customerregistration" class="form-1" method="post" enctype="application/x-www-form-urlencoded"> {% csrf_token %}
+                <input type="text" name="username" id="username" class="input-field" placeholder="Username" pattern="[A-z0-9]{1,}" required oninvalid="this.setCustomValidity('User ID can take alphanumeric characters only and first letter should be alphabet')">
+                <input type="password" id="passwordoriginal" name="password" class="input-field" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                <input type="password" id="confirmpassword" name="confirmpassword" class="input-field" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Confirm Password" required>
+
+                
+                <div class="container">
+                    <div class="btn"><button type="submit">Sign Up</button></div>
+                    <div id="msgr" name="msgr">{{msgr}}</div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="pswd_info">
+        <h4>Password must meet the following requirements:</h4>
+        <ul>
+            <li id="letter" class="invalid">At least <strong>one letter</strong></li>
+            <li id="capital" class="invalid">At least <strong>one capital letter</strong></li>
+            <li id="number" class="invalid">At least <strong>one number</strong></li>
+            <li id="length" class="invalid">Be at least <strong>8 characters</strong></li>
+            <li id="confirm" class="invalid">Both password<strong>must be same</strong></li>
+        </ul>
+    </div>
+
+    <!-- <div class="wrapper">
+        <div class="side-bar">
+          <div class="menu">
+            
+            {% for row in rows %}
+            <div class="item">
+              <a class="sub-btn" ><img src="/static/images/{{row.3}}" style="margin:5px 10px;" width="50" > {{row.1}} <i class="fas fa-angle-right dropdown"></i></a>
+              <div class="sub-menu">
+    
+              </div>
+              <input class="category" type="hidden" value="/getsubcategoriesjson?categoryid={{row.0}}">
+            </div>  
+            {% endfor %}
+      </div>
+    </div>
+    </div> -->
+
+
+    <style>
+        li#letter {
+            margin-left: 10%;
+        }
+        li#capital {
+            margin-left: 10%;
+        }
+        li#number {
+            margin-left: 10%;
+        }
+        li#length {
+            margin-left: 10%;
+        }
+        li#confirm {
+            margin-left: 10%;
+        }
+        input {
+            padding:10px 10px;
+            border:1px solid #d5d9da;
+            border-radius:5px;
+            box-shadow: 0 0 5px #e8e9eb inset;
+            width:328px; /* 400 (#container) - 40 (li margins) -  10 (span paddings) - 20 (input paddings) - 2 (input borders) */
+            font-size:1em;
+            outline:0; /* remove webkit focus styles */
+        }
+        input:focus {
+            border:1px solid #b9d4e9;
+            border-top-color:#b6d5ea;
+            border-bottom-color:#b8d4ea;
+            box-shadow:0 0 5px #b9d4e9;
+        }
+        #pswd_info {
+            position:absolute;
+            /* bottom:-75px; */
+            /*bottom: -115px\9;  IE Specific */
+            top:60%;
+            right:50%;
+            width:250px;
+            padding:15px;
+            background:#fefefe;
+            font-size:.875em;
+            border-radius:5px;
+            box-shadow:0 1px 3px #ccc;
+            border:1px solid #ddd;
+        }
+
+        #pswd_info h4 {
+            margin:0 0 10px 0;
+            padding:0;
+            font-weight:normal;
+        }
+        #pswd_info::before {
+            content: "\25B2";
+            position:absolute;
+            top:-12px;
+            left:45%;
+            font-size:14px;
+            line-height:14px;
+            color:#ddd;
+            text-shadow:none;
+            display:block;
+        }
+        .invalid {
+            background:url(/static/images/invalid.png) no-repeat 0 50%;
+            background-size: 20px 20px;
+            padding-left:22px;
+            line-height:24px;
+            color:#ec3f41;
+        }
+        .valid {
+            background:url(/static/images/valid.png) no-repeat 0 50%;
+            background-size: 20px 20px;
+            padding-left:22px;
+            line-height:24px;
+            color:#3a7d34;
+        }
+        #pswd_info {
+            display:none;
+        }
+    </style>
+
+    <script>
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+        var z = document.getElementById("butn");
+
+        function register(){
+            x.style.left = "-420px";
+            y.style.left = "20px";
+            z.style.left = "140px";
+        }
+
+        function login(){
+            x.style.left = "20px";
+            y.style.left = "420px";
+            z.style.left = "0";
+        }
+
+        $(document).ready(function() {
+            //code here
+            $('#passwordoriginal').keyup(function() {
+                // keyup code here
+                var pswd = $(this).val();
+                //validate the length
+                if ( pswd.length < 8 ) {
+                    $('#length').removeClass('valid').addClass('invalid');
+                } else {
+                    $('#length').removeClass('invalid').addClass('valid');
+                }
+                //validate letter
+                if ( pswd.match(/[A-z]/) ) {
+                    $('#letter').removeClass('invalid').addClass('valid');
+                } else {
+                    $('#letter').removeClass('valid').addClass('invalid');
+                }
+
+                //validate capital letter
+                if ( pswd.match(/[A-Z]/) ) {
+                    $('#capital').removeClass('invalid').addClass('valid');
+                } else {
+                    $('#capital').removeClass('valid').addClass('invalid');
+                }
+
+                //validate number
+                if ( pswd.match(/\d/) ) {
+                    $('#number').removeClass('invalid').addClass('valid');
+                } else {
+                    $('#number').removeClass('valid').addClass('invalid');
+                }                
+            }).focus(function() {
+                $('#pswd_info').show();
+            }).blur(function() {
+                $('#pswd_info').hide();
+            });
+
+            $('#confirmpassword').keyup(function() {
+                var confirmpass = $(this).val();
+                var originalpass = $('#passwordoriginal').val();                
+                if(confirmpass == originalpass)
+                {
+                    $('#confirm').removeClass('invalid').addClass('valid');
+                }
+                else
+                {
+                    $('#confirm').removeClass('valid').addClass('invalid');
+                }
+            }).focus(function() {
+                $('#pswd_info').show();
+            }).blur(function() {
+                $('#pswd_info').hide();
+            })
+        });
+
+        $('#username').keyup(function() {
+            var f=0
+            $.getJSON("/getusernamejson",{ajax:true},function(data){
+                $.each(data,function(index,item){
+                    if($('#username').val()==item[0])
+                    { 
+                        $("#msgr").html("Username is not <b>Available</b>!").css("color", "red");
+                        f=1;
+                        
+                    }
+                });
+                if(f==0){
+                    $('#msgr').html("Username is <b>Available</b>!").css("color", "green");
+                }
+                if($('#username').val()==''){
+                    $("#msgr").html("").css("color", "red");
+                }
+            });
+        });
+    </script>
+    
+</body>
+<script type="text/javascript">
+    $(document).ready(function(){
+      //jquery for toggle sub menus
+      $('.sub-btn').click(function(){
+        $(this).next('.sub-menu').slideToggle();
+        $(this).find('.dropdown').toggleClass('rotate');
+      });
+
+      //jquery for expand and collapse the sidebar
+      $('.menu-btn').click(function(){
+        $('.side-bar').addClass('active');
+        $('.menu-btn').css("visibility", "hidden");
+      });
+
+
+    $(".sub-btn").click(function(){
+      var current = $(this);
+      $(this).siblings(".sub-menu").empty()
+      // $(this).siblings(".sub-menu").append('<a href="#" class="sub-item">hIIIIIIIIIIIIIIII</a>');
+      $.getJSON($(this).siblings(".category").val(),{ajax:true},function(data){
+        console.log(data);
+        $.each(data,function(index,item){
+          console.log(index+"  index"+ item[2]+"   item" +  JSON.stringify(current) + "  current");
+          var submenuitem = '<a target="frame" class="sub-item" href="/displayproducts?subcategoryid='+item[1]+'"><img width="50" src="/static/images/'+item[4]+' "> '+ item[2]+'</a>';
+          console.log('<a target="frame" class="sub-item" href="/displayproducts?subcategoryid='+item[1]+'"><img src="/static/images/'+item[4]+'">'+item[2]+'</a>');
+          $(current).siblings(".sub-menu").append(submenuitem);
+          // JSON.stringify();
+          //  alert(current.html());
+        });
+      });
+    });
+    
+    });
+    </script>
+    
+    <script src="/static/javascript/responses.js"></script>
+    <script src="/static/javascript/chat.js"></script>
+
+</html>

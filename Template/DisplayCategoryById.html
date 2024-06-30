@@ -1,0 +1,79 @@
+<style type="text/css">
+.root{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 20px;
+    margin-top: 100px;
+}
+.myframe{
+     width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius:10px;
+}
+.gap{
+margin-top: 10px;
+}
+.btnstyle{
+display: flex;justify-content:center;align-items:center;
+}
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Motokart</title>
+</head>
+<body style="background:transparent;">
+<form action="/editdeletecategory" >
+    <div class="root">
+        <div class="myframe">
+        <div class="row" style="display: flex;align-items: center;font-size:15px;padding-left:15px;margin-bottom:10px;letter-spacing:2px;font-weight:bold">
+        Category
+        <input type="hidden" name="categoryid" value="{{row.0}}">
+        </div>
+        <div class="row">
+        <div class="col">
+            <input type="text" name="categoryname" class="form-control" value="{{row.1}}" placeholder="Name of catergory" pattern="[A-z 0-9]{1,20}" oninvalid="this.setCustomValidity('Input Invalid')">
+        </div>
+    </div>
+    <div class="row gap">
+        <div class="col">
+            <input type="text" name="cdescription" class="form-control" value="{{row.2}}" placeholder="Description of catergory" pattern="[A-z 0-9]{1,100}" oninvalid="this.setCustomValidity('Input Invalid')">
+        </div>
+    </div>
+            <input type="hidden" name="categoryicon" value="{{row.3}}">
+
+            <div class="row gap">
+                <div class="col" style="display:flex; align-items:center;justify-content: center;">
+                     &nbsp;<a href="/editcategoryicon?categoryid={{row.0}}&categoryname={{row.1}}&categoryicon={{row.3}}"><image src="/static/images/{{row.3}}" id="pic" width="100"/></a>
+                </div>
+            </div>
+
+            <div class="row gap">
+                <div class="col btnstyle">
+                    <button type="submit" name="btn" value="Edit"  class="btn btn-primary w-100">Save</button>
+                </div>
+                    </div>
+
+           <div class="row gap">
+            <div class="col btnstyle">
+            <button type="submit" name="btn" value="Delete" class="btn btn-primary w-100">Delete</button>
+        </div>
+        </div>
+        <div class="row gap">
+            <div class="col btnstyle" style="font-size:18px;font-weight:bold;">
+                {{msg}}
+            </div>
+        </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

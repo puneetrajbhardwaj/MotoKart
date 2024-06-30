@@ -1,0 +1,109 @@
+<html lang="en">
+    <link href="/static/CSS/style.css" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #3a3b3c;
+        }
+        a{color: #ccc;
+            }
+        a:link {
+        text-decoration: none;
+            }
+
+        a:visited {
+        text-decoration: none;
+        }
+
+        a:hover {
+        text-decoration: none;
+        }
+
+        a:active {
+        text-decoration: none;
+        }
+
+        button {
+            margin: 3px;
+            background-color: black;
+            color: #ccc;
+            border-radius: 10px;
+            border-color: #ccc;
+        }
+        button:hover{
+            margin: 3px;
+            background-color: rgba(250, 250, 250, 0.2);
+            color: rgb(255, 255, 255);
+            border-radius: 10px;
+            border-color: #ccc;
+        }
+    </style> 
+</head>
+<body>
+
+    <div class="base">
+        <!-- Top Nav Bar -->
+        <!-- <nav>
+            <div class="nav-bg"></div> 
+            <div class="website-id">
+                <img src="/static/images/logo.jpeg" class="logo-img">
+                <a><b>MOTOKART</b></a>
+            </div>
+
+
+            <ul>
+                <li>
+                    <input type="text" placeholder="search">
+                    <i class="bx bx-search icon"></i>
+                </li>
+
+                <li>
+                    <i class="bx bxs-home icon"></i>
+                    <span>Home</span>
+                </li>
+
+                <li>
+                    <i class="bx bxs-category icon"></i>
+                    <span>Categories</span>
+                </li>
+                
+                <li>
+                    <i class="bx bxs-briefcase icon"></i>
+                    <span>Services</span>                
+                </li>
+
+                <li>
+                    <i class="bx bxs-info-circle icon"></i>
+                    <span>About</span>
+                </li>
+
+                <li>
+                    <i class="bx bxs-cog icon"></i>
+                    <span>options</span>
+                </li>
+                
+                <li>
+                    <i class="bx bxs-user icon"></i>
+                </li>
+            </ul>  
+        </nav> -->
+        <div class="card-container">
+            {% for row in rows %}
+            <div class="card">
+                <a href="/editcategoryicon?categoryid={{row.0}}&categoryname={{row.1}}&categoryicon={{row.3}}"><img src="/static/images/{{row.3}}" alt=""></a>
+                <h3 style="text-align: center;margin-top: 10px;">{{row.1}}</h3>
+                <span>{{row.2}}</span>
+                <a style="margin-top:5px;" href="/displaycategorybyid?categoryid={{row.0}}"><button>Edit Category</button></a> 
+                <a href="/displaysubcategoriesemployee?categoryid={{row.0}}"><button>Go to Subcategory</button></a>
+            </div>
+            {% endfor %}
+        </div>    
+    </div> 
+
+</body>
+</html>

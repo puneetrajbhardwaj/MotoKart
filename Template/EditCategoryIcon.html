@@ -1,0 +1,79 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+$('#pic').change(function(){
+var file=pic.files[0]
+categoryicon.src=URL.createObjectURL(file)
+})
+})
+</script>
+
+<style type="text/css">
+.root{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 20px;
+}
+.myframe{
+     width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius:10px;
+}
+.gap{
+margin-top: 10px;
+}
+.btnstyle{
+display: flex;justify-content:center;align-items:center;
+}
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Category Icon</title>
+</head>
+<body style="background:transparent;">
+<form action="/saveeditcategoryicon" method="post" enctype="multipart/form-data">{% csrf_token %}
+<div class="root">
+    <div class="myframe">
+    <input type="hidden" name="categoryid" class="form-control" value="{{row.0}}"/>
+    <input type="hidden" name="oldicon" class="form-control" value="{{row.2}}"/>
+<center>
+    <div class="row">
+        <div class="col">
+    <h3>Edit Category Icon</h3>
+        </div></div>
+    <div class="row">
+    <div class="col">
+    <h4>{{row.1}}</h4>
+    </div>  </div>
+  <div class="row gap">
+      <div class="col">
+      <img src="/static/images/{{row.2}}" id="categoryicon" width="30%"/>
+      </div></div>
+    <div class="row">
+        <div class="col">
+        <b>Select Image you want to Replace:</b><br><br>
+        </div>
+    </div>
+    <div class="row">
+        <div clss="col">
+        <input type="file" required id="pic" class="form-control" name="categoryicon" />
+        </div>
+        <div class="col">
+        <input type="Submit" class="form-control" value="Save" >
+        </div>
+    </div>
+</center>
+    </div>
+</div>
+</form>
+</body>
+</html>

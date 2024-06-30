@@ -1,0 +1,143 @@
+<style type="text/css">
+    .root{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        padding: 20px;
+        margin-top:50px
+    }
+    .myframe{
+         width: 600px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius:10px;
+    }
+    .gap{
+    margin-top: 10px;
+    }
+    .btnstyle{
+    display: flex;justify-content:center;align-items:center;
+    }
+    
+    </style>
+    <!DOCTYPE html>
+    <html lang="en">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/static/javascript/category.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <title>Material Management[Subcategory]</title>
+    </head>
+    <body style="background:transparent;">
+    <form action="/editdeletesubcategory" >
+        <div class="root">
+            <div class="myframe">
+            <div class="row" style="display: flex;align-items: center;font-size:15px;padding-left:15px;margin-bottom:10px;letter-spacing:2px;font-weight:bold;">
+            <input type="hidden" value="{{row.1}}" name="subcategoryid">
+            Subcategory
+            </div>
+                <div class="row">
+            <div class="col">
+                <select name="categoryid" id="categoryid" class="form-control">
+                    <option value="{{row.0}}" selected>{{row.5}}</option>
+                </select>
+            </div>
+        </div>
+            <div class="row gap">
+            <div class="col">
+                <input type="text" name="subcategoryname" class="form-control" placeholder="Name of Subcatergory" value="{{row.2}}" pattern="[A-z 0-9]{1.100}" oninvalid="this.setCustomValidity('Input Invalid')">
+            </div>
+        </div>
+                <div class="row gap">
+            <div class="col">
+                <input type="text" name="scdescription" class="form-control" placeholder="Description of subcategory" value="{{row.3}}" pattern="[A-z 0-9]{1.100}" oninvalid="this.setCustomValidity('Input Invalid')">
+            </div>
+        </div>
+             
+            <div class="row gap">
+                <div class="col" style="display:flex; align-items:center;justify-content: center;">
+                    <input type="hidden" name="subcategoryicon" value="{{row.4}}">
+                    <a href="/editsubcategoryicon?categoryid={{row.0}}&subcategoryid={{row.1}}&subcategoryname={{row.2}}&subcategoryicon={{row.4}}"> &nbsp;<image src="/static/images/{{row.4}}" id="pic" width="100"/></a>
+                </div>
+            </div>
+
+            <div class="row gap">
+                <div class="col btnstyle">
+                    <button type="submit" name="btn" value="Edit"  class="btn btn-primary w-100">Save</button>
+                </div>
+                    </div>
+
+           <div class="row gap">
+            <div class="col btnstyle">
+            <button type="submit" name="btn" value="Delete" class="btn btn-primary w-100">Delete</button>
+        </div>
+        </div>
+        <div class="row gap">
+            <div class="col btnstyle" style="font-size:18px;font-weight:bold;">
+                {{msg}}
+            </div>
+            </div>
+            </div>
+        </div>
+    </form>
+    </body>
+    </html>
+    <script>
+$(document).ready(function () {
+
+$.getJSON("/getcategoriesjson", { ajax: true }, function (data) {
+
+    $.each(data, function (index, item) {
+        $('#categoryid').append($('<option>').text(item[1]).val(item[0]))
+    })
+
+})
+
+$('#categoryid').change(function () {
+    $('#subcategoryid1').empty()
+    $('#subcategoryid2').empty()
+    $.getJSON("/getsubcategoriesjson", { ajax: true, categoryid: $('#categoryid').val() }, function (data) {
+        $('#subcategoryid1').append($('<option>').text('-Select Sub Category-'));
+        $.each(data, function (index, item) {
+            $('#subcategoryid1').append($('<option>').text(item[2]).val(item[1]));
+        });
+
+    });
+
+    $.getJSON("/getsubcategoriesjson", { ajax: true, categoryid: $('#categoryid').val() }, function (data) {
+        $('#subcategoryid2').append($('<option>').text('-Select Sub Category-'))
+        $.each(data, function (index, item) {
+            $('#subcategoryid2').append($('<option>').text(item[2]).val(item[1]));
+        });
+
+    });
+
+})
+
+$('#subcategoryid1').change(function () {
+    $('#productid1').empty()
+    $.getJSON("/getproductjson", { ajax: true, subcategoryid: $('#subcategoryid1').val() }, function (data) {
+        $('#productid1').append($('<option>').text('-Select Product1-'))
+        $.each(data, function (index, item) {
+            $('#productid1').append($('<option>').text(item[3]).val(item[2]));
+        });
+
+    });
+
+});
+$('#subcategoryid2').change(function () {
+    $('#productid2').empty()
+    $.getJSON("/getproductjson", { ajax: true, subcategoryid: $('#subcategoryid2').val() }, function (data) {
+        $('#productid12').append($('<option>').text('-Select Product1-'))
+        $.each(data, function (index, item) {
+            $('#productid2').append($('<option>').text(item[3]).val(item[2]));
+        });
+
+    });
+
+});
+});
+    </script>    

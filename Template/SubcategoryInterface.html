@@ -1,0 +1,80 @@
+<style type="text/css">
+.root{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 20px;
+    margin-top:50px;
+}
+.myframe{
+     width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius:10px;
+}
+.gap{
+margin-top: 10px;
+}
+.btnstyle{
+display: flex;justify-content:center;align-items:center;
+}
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/static/javascript/category.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Material Management[Subcategory]</title>
+</head>
+<body style="background:transparent;">
+<form action="/subcategorysubmit" method="post" enctype="multipart/form-data" >{% csrf_token %}
+    <div class="root">
+        <div class="myframe">
+        <div class="row" style="display: flex;align-items: center;font-size:15px;padding-left:15px;margin-bottom:10px;letter-spacing:2px;font-weight:bold;">
+        Subcategory
+        </div>
+            <div class="row">
+        <div class="col">
+            <select name="categoryid" id="categoryid" class="form-control">
+                <option>-Select Category-</option>
+            </select>
+        </div>
+    </div>
+        <div class="row gap">
+        <div class="col">
+            <input type="text" name="subcategoryname" class="form-control" placeholder="Name of Subcatergory" pattern="[A-z 0-9]{1,100}" oninvalid="this.setCustomValidity('Input Invalid')">
+        </div>
+    </div>
+            <div class="row gap">
+        <div class="col">
+            <input type="text" name="scdescription" class="form-control" placeholder="Description of subcategory" pattern="[A-z 0-9]{1,100}" oninvalid="this.setCustomValidity('Input Invalid')">
+        </div>
+    </div>
+             <div class="row gap">
+        <div class="col">
+            <input type="file" name="subcategoryicon" class="form-control" placeholder="Icon">
+        </div>
+    </div>
+            <div class="row gap">
+        <div class="col btnstyle">
+            <button type="submit" class="btn btn-primary w-100">Save</button>
+        </div>
+        <div class="col btnstyle">
+            <button type="reset" class="btn btn-primary w-100">Reset</button>
+        </div>
+        </div>
+        <div class="row gap">
+            <div class="col btnstyle" style="font-size:18px;font-weight:bold;">
+                {{msg}}
+            </div>
+        </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

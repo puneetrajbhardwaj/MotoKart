@@ -1,0 +1,382 @@
+<style>
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: "Poppins",sans-serif;
+
+}
+body{
+    background-color: #3a3b3c;
+    overflow: hidden;
+}
+/* ----------------------------- TOP NAVIGATION BAR -------------------------*/
+
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    backdrop-filter: blur(15px);
+    background-color: rgba(255, 255, 255, 0.1);
+    /* border-radius: 20px;
+    border: 0.5px solid rgb(96, 97, 99); */
+    overflow: hidden;
+    z-index: 5;
+  }
+  
+  nav ul{
+    z-index: 1;
+  }
+  
+  nav ul li input{
+    background-color: #3a3b3c;
+    border-radius: 20px;
+    padding: 5px;
+    color: #fff;
+  }
+  
+  nav ul li input::placeholder{
+    color: #fff;
+  }
+  
+  .nav ul li a{
+    text-decoration: none;
+  }
+  .nav-bg{
+    position: absolute;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(to left , rgba(255,255,255,0.2), transparent);
+    /* border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
+    transform: skewX(45deg) translateX(0);    
+    /* transition: 0.5s; */
+  }
+  
+  nav ul li i, span{
+    color: #fff;
+  }
+  
+  nav ul li{
+    height: 100%;
+    padding: 15px;
+  }
+  
+  nav ul li:nth-child(2):hover, li:nth-child(3):hover, li:nth-child(4):hover, li:nth-child(5):hover{
+    background-color: rgba(243, 237, 237, 0.1);
+    font-size: 17px;
+    transition: 0.5s ease;
+  }
+  
+  
+  nav div{
+    display: flex;
+  }
+  
+  nav div a{
+    color: #fff;
+    margin-top: 15px;
+    margin-left: 10px;
+  }
+  
+  nav ul li{
+    display: inline-block;
+    list-style: none
+  }
+  
+  .logo-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .usr-btn{
+    background-image: radial-gradient(farthest-side at 60% 55%,rgba(255,255,255,0.1), rgba(255,255,255,0.35));
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  nav ul li:nth-child(6):hover{
+    font-size: 18px; 
+    transition: 0.5s ease;
+  }
+  
+  .usr-btn:hover{
+    background-image: radial-gradient(farthest-side at 60% 55%,rgba(255,255,255,0.1), rgba(255,255,255,0.7));
+  }
+/* ========================================================================================================== */
+
+#toggle{
+    display: none;
+}
+
+.sidebar{
+    position: absolute;
+    height: 100%;
+    width: 200px;
+    left: 0;
+    top: 60px;
+    padding: 10px 0 20px 0;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); */
+    overflow: hidden;
+}
+
+.sidebar-menu{
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: 15px 25px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.sidebar-menu > span{
+    font-size: 25px;
+    padding-right: 30px;
+}
+
+.sidebar-menu:hover{
+    color: #2d2d98;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+#toggle:checked ~ .sidebar{
+    width: 70px;
+}
+
+#toggle:checked ~ .sidebar .sidebar-menu > p {
+    display: none;
+}
+
+#toggle:checked~ main{
+    padding: 6rem 2rem 2rem 6rem;
+}
+
+main{
+    min-height: 100%;
+    color:#201f2b;
+}
+
+.card{
+    padding: 1rem;
+    border-radius: 10px;
+}
+.total1{
+    grid-area: total1;
+    background-color: rgba(243, 237, 237, 0.1);
+    backdrop-filter: blur(15px);
+    color: #fff;
+}
+.total2{
+    grid-area: total2;
+    background-color: rgba(243, 237, 237, 0.1);
+    backdrop-filter: blur(15px);
+    color: #fff;
+}
+.total3{
+    grid-area: total3;
+    background-color: rgba(243, 237, 237, 0.1);
+    backdrop-filter: blur(15px);
+    color: #fff;
+    
+}
+
+.total4{
+    grid-area: total4;
+    background-color: rgba(243, 237, 237, 0.1);
+    backdrop-filter: blur(15px);
+    color: #fff;
+}
+.detail{
+    grid-area: detail;
+    overflow-x: auto;
+}
+.customer{
+    grid-area: customer;
+    overflow-x: auto;
+}
+
+.info{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.info-detail h2{
+    font-size: 24px;
+
+}
+.info-detail p{
+    font-size: 14px;
+
+}
+
+#eframe{
+    background-color: rgba(255, 255, 255, 0.1);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 90.5%;
+    width:85.5%;
+    /* border: 2px solid rgba(255, 255, 255, 1); */
+    border: none;
+    overflow: hidden;
+}
+
+        .sidebar a{color: #fff;
+            }
+
+        .sidebar a:link {
+        text-decoration: none;
+            }
+
+        .sidebar a:visited {
+        text-decoration: none;
+        }
+
+        .sidebar:hover {
+        text-decoration: none;
+        }
+
+        .sidebar a:active {
+        text-decoration: none;
+        }
+
+        a{
+            text-decoration: none;
+        }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--styling-->
+    <!-- <link rel="stylesheet" href="/static/CSS/employeedashboard.css"> -->
+    <!--font poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapise.com/css2?family=Poppins&display=swap">
+    <!--icons: font awesome 5.15-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+    
+    <title>Dashboard Admin</title>
+</head>
+<body>
+    <!--navbar-->
+    <nav>
+        <div class="nav-bg"></div> 
+        <div class="website-id">
+            <img src="/static/images/logo.jpeg" class="logo-img">
+            <a><b>MOTOKART</b></a>
+        </div>
+        <ul>
+            <li>
+            <a href="/employeesearch" target="eframe" id="asearch" name="asearch">    
+                <input type="text" placeholder="search" id="search" name="search">
+                <i class="bx bx-search icon"></i>
+            </a>    
+            </li>
+  
+            <li>
+                <i class="bx bxs-home icon"></i>
+                <span>Home</span>
+            </li>
+            
+            <li>
+                <i class="bx bxs-briefcase icon"></i>
+                <span>Services</span>                
+            </li>
+  
+            <li>
+                <i class="bx bxs-info-circle icon"></i>
+                <span>About</span>
+            </li>
+  
+            <li>
+                <i class="bx bxs-cog icon"></i>
+                <span>options</span>
+            </li>
+            
+            
+            <li>
+            <a href="/employeelogout">
+              <div class="usr-btn">
+                <i class="bx bxs-user icon"></i>
+              </div>
+            </a>  
+            </li>
+        </ul>
+    
+    </nav>
+
+
+     <div class="sidebar">
+        <a href="/categoryinterface" target="eframe">
+            <div class="sidebar-menu">
+            <span class="fas fa-clipboard-list"></span>
+            <p>Categories Interface</p>
+            </div>
+        </a>
+        <a href="/displaycategoriesemployee" target="eframe">
+            <div class="sidebar-menu">
+                <span class="fas fa-clipboard-list"></span>
+                    <p>Categories</p>
+            </div>
+        </a>
+        <a href="/subcategoryinterface" target="eframe">
+            <div class="sidebar-menu">
+                <span class="fas fa-clipboard-list"></span>
+                <p>Sub-Category Interface</p>
+            </div>
+        </a>
+        <a href="/displayallsubcategoriesemployee" target="eframe">
+            <div class="sidebar-menu">
+                <span class="fas fa-clipboard-list"></span>
+                <p>Sub-Categories</p>
+            </div>
+        </a>
+        <a href="/productinterface" target="eframe">
+            <div class="sidebar-menu">
+                <span class="fas fa-clipboard-list"></span>
+                <p>Product Interface</p>
+                
+            </div>
+        </a>  
+        <a href="/displayallproductsemployee" target="eframe">
+            <div class="sidebar-menu">
+                <span class="fas fa-clipboard-list"></span>
+                <p>Products</p>
+                
+            </div>
+        </a>
+
+     </div>
+    <!--main dashbaord-->
+
+    <iframe id="eframe" name="eframe">
+
+    </iframe>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        $('#search').keyup(function(){
+        var v = "/employeesearch?pattern="+$('#search').val();
+          // $('#asearch').prop("href",v).click();
+          $("#asearch").attr("href",v);
+          $('#asearch').click();
+          // alert(v);
+          // alert($('#asearch').attr("href"));
+      }); 
+
+    });
+</script>    

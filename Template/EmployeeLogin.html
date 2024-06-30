@@ -1,0 +1,621 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;    
+}
+
+/* =================================== Base Stuff ============================= */
+:root{
+    /* ===== Colors ===== */
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+
+.base{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden; 
+    background-color: var(--body-color);        
+    /* primary - color -^- */
+    position: absolute;    
+} 
+
+
+
+/* ----------------------------- TOP NAVIGATION BAR -------------------------*/
+
+nav{
+    width: 100%;
+    margin: auto;
+    padding: 5px 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    backdrop-filter: blur(20px);
+    background-color: var(--sidebar-color);
+    /* border-radius: 20px;
+    border: 0.5px solid rgb(96, 97, 99); */
+}
+
+nav ul li input{
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    padding: 5px;
+    color: var(--text-color);
+}
+
+nav ul li input::placeholder{
+    color: var(--text-color);
+}
+
+.nav-bg{
+    position: absolute;
+    padding: 0px 0;
+    width: 57%;
+    height: 50px;
+    background: linear-gradient(to left , rgba(255,255,255,0.29), transparent);
+    /* border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
+    transform: skewX(45deg) translateX(0);    
+    /* transition: 0.5s; */
+}
+
+nav ul li i, span{
+    color: var(--text-color);
+}
+
+nav div{
+    display: flex;
+}
+
+nav div a{
+    color: #fff;
+    margin: auto 10px;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 0px 15px;
+}
+
+.logo-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* --------------------------------- CAR IMAGE ------------------------------------- */
+.images{
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    padding: 10%;
+}
+
+.images img{
+    position: absolute;
+}
+
+.images img:nth-child(1){
+    width: 520px;
+    height: 520px;
+    filter: sepia(100%) hue-rotate(190deg) saturate(500%); 
+}
+
+.images img:nth-child(2){
+
+    transform: rotateY(180deg);
+    height: 500px;
+    width: 800px;
+}
+
+/* -------------------------------- LOGIN FORM BOX --------------------------------- */
+
+.form-box{
+    height: 460px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 2% 4% ;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 10px 20px 10px rgba(255, 255, 255, 0.1);
+    border: 0.5px solid rgba(255,255, 255, 0.3);
+    padding: 5px;
+    left: 70%;
+    top: 2%;
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+}
+
+
+.cont{
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to left , rgba(255, 255, 255,0.03), transparent);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transform: skewX(45deg) translateX(0);    
+    transition: 0.5s; 
+}
+
+.logo{
+    align-items: center;
+    padding: 10px;
+    display: flex;
+}
+
+.label1{
+    color: aquamarine;
+}
+
+
+.button-box{
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2rem);
+    border: none;
+}
+
+.toggle-btn{
+    margin: auto;
+    width: 49%;
+    padding: 10px 10px;
+    /* cursor: pointer; */
+    background: transparent;
+    border: none;
+    outline: none;
+    position: relative;
+    color: white;
+    align-items: center;
+    font-weight: 500;
+}
+
+.logo-img1{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 30px;
+}
+
+/* .toggle-btn:nth-child(1){
+    color: black;
+} */
+/* ^^^ Does not work. reason unknown  */
+
+#butn{
+    top: 0;
+    left: 0;
+    position: absolute;
+    border: none;
+    width: 49%;
+    height: 100%;
+    background: linear-gradient(to left bottom , rgba(255,255,255,0.25), rgba(255,255,255,0.56));
+    border-radius: 10px;
+    backdrop-filter: blur(80px);
+    transition: 0.5s;
+}
+
+.form-1{
+    top: 120px;
+    left: 20px;
+    position: absolute;
+    width: 280px;
+    transition: 0.5s;
+    margin: 10px 0;
+}
+
+.input-field{
+    width: 100%;
+    padding: 10px 5px;
+    margin: 10px 0;
+    border-radius: 100px;
+    outline: none;
+    background: linear-gradient(to left bottom , rgba(255,255,255,0.25), rgba(255,255,255,0.56));
+}
+
+/* --------------------------------- Button and its animations --------------------------------- */
+.btn{
+    position: absolute;
+    width: 155px;
+    height: 50px;
+    margin: 50px 70px;
+}
+
+.btn button{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    color: #fff;
+    text-decoration: none;
+    z-index: 1;
+    font-weight: 400;
+    letter-spacing: 1px;
+    overflow: hidden;
+    transition: 0.5s;
+    backdrop-filter: blur(15px);
+}
+
+/* .btn:hover button{
+    letter-spacing: 3px;
+} 
+
+.btn button::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(255,255,255,0.15), transparent);
+    transform: skewX(45deg) translateX(0);    
+    transition: 0.5s;
+}
+
+.container .btn:hover a::before{
+    transform: skewX(45deg) translateX(200%);
+}
+
+.btn:hover::before{
+    bottom: 0;
+    height: 50%;
+    width: 80%;
+    border-radius: 30px;
+    transition-delay: 0.5s;
+
+} */
+
+
+
+/* --------------------------- CARDS ----------------------------  */
+.card-container{
+    display: flex;
+    position: absolute;
+    width: 100%;
+}
+
+.card-container .card{
+    height: 20rem;
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 5% auto ;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.1);
+    border: 0.5px solid rgba(255,255, 255, 0.3);
+    padding: 10px;
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+    align-items: center;
+}
+
+.card-container .card img{
+    border-radius: 15px;
+    width: 12rem;
+    height: 100px;
+    margin: 5px;
+}
+
+.card-container .card h3{
+    color: var(--text-color);
+}
+
+.card-container .card span{
+    font-size: 12px;
+    text-justify:distribute-all-lines;
+}
+
+#login{
+    left: 20px;
+}
+
+#register{
+    left: 420px;
+}
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylesheet.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="base">
+       
+         <!-- Top Nav Bar -->
+         <nav>
+            <div class="nav-bg"></div> 
+            <div class="website-id">
+                <img src="/static/images/logo.jpeg" class="logo-img">
+                <a><b>MOTOKART</b></a>
+            </div>
+
+
+            <ul>
+                <li>
+                    <input type="text" placeholder="search">
+                    <i class="bx bx-search icon"></i>
+                </li>
+
+                <li>
+                    <i class="bx bxs-home icon"></i>
+                    <span>Home</span>
+                </li>
+
+                <li>
+                    <i class="bx bxs-category icon"></i>
+                    <span>Categories</span>
+                </li>
+                
+                <li>
+                    <i class="bx bxs-briefcase icon"></i>
+                    <span>Services</span>                
+                </li>
+
+                <li>
+                    <i class="bx-bxs-info-circle icon"></i>
+                    <span>About</span>
+                </li>
+
+                <li>
+                    <i class="bx bxs-cog icon"></i>
+                    <span>options</span>
+                </li>
+                
+                <li>
+                    <i class="bx bxs-user icon"></i>
+                </li>
+            </ul>
+        
+        </nav>
+
+        <div class="images">
+            <img src="/static/images/pattern.png" alt="">
+            <img src="/static/images/Luxury-Car.png" alt="">
+        </div>
+        
+        <div class="form-box">
+            <div class="cont"></div>
+
+            <div class="logo">
+                <img src="/static/images/logo.jpeg" class="logo-img1">
+                <font class="label1"><b>MOTOKART</b></font>
+            </div>
+
+            <div class="button-box">
+                <!-- <div id="butn" style="width:100;"></div> -->
+                <button class="toggle-btn" style="width: 100%;">Login</button>
+                <!-- <button class="toggle-btn" onclick="register()">Register</button> -->
+            </div>
+
+            <form id = "login" action="/checkemployeelogin" class="form-1" method="post" enctype="application/x-www-form-urlencoded"> {% csrf_token %}
+                <input type="email" name="employeeemail" id="employeeemail" required class="input-field" placeholder="Email Id" required>
+                <input type="password" name="password"  class="input-field" placeholder="Password" required>
+                
+                <div class="container">
+                    <div class="btn"><button type="submit">Sign In</button></div>
+                </div>
+                <div>{{msg}}</div>
+            </form>
+        </div>
+    </div>
+    <div id="pswd_info">
+        <h4>Password must meet the following requirements:</h4>
+        <ul>
+            <li id="letter" class="invalid">At least <strong>one letter</strong></li>
+            <li id="capital" class="invalid">At least <strong>one capital letter</strong></li>
+            <li id="number" class="invalid">At least <strong>one number</strong></li>
+            <li id="length" class="invalid">Be at least <strong>8 characters</strong></li>
+        </ul>
+    </div>
+    <div id="email_info">
+        <p>
+            please use @ and . in the email.
+        </p>
+    </div>
+
+    <style>
+        li#letter {
+            margin-left: 10%;
+        }
+        li#capital {
+            margin-left: 10%;
+        }
+        li#number {
+            margin-left: 10%;
+        }
+        li#length {
+            margin-left: 10%;
+        }
+        input {
+            padding:10px 10px;
+            border:1px solid #d5d9da;
+            border-radius:5px;
+            box-shadow: 0 0 5px #e8e9eb inset;
+            width:328px; /* 400 (#container) - 40 (li margins) -  10 (span paddings) - 20 (input paddings) - 2 (input borders) */
+            font-size:1em;
+            outline:0; /* remove webkit focus styles */
+        }
+        input:focus {
+            border:1px solid #b9d4e9;
+            border-top-color:#b6d5ea;
+            border-bottom-color:#b8d4ea;
+            box-shadow:0 0 5px #b9d4e9;
+        }
+        #pswd_info {
+            position:absolute;
+            /* bottom:-75px; */
+            /*bottom: -115px\9;  IE Specific */
+            top:60%;
+            right:55px;
+            width:250px;
+            padding:15px;
+            background:#fefefe;
+            font-size:.875em;
+            border-radius:5px;
+            box-shadow:0 1px 3px #ccc;
+            border:1px solid #ddd;
+        }
+
+        #email_info {
+            position:absolute;
+            /* bottom:-75px; */
+            /*bottom: -115px\9;  IE Specific */
+            top:60%;
+            right:55px;
+            width:250px;
+            padding:15px;
+            background:#fefefe;
+            font-size:.875em;
+            border-radius:5px;
+            box-shadow:0 1px 3px #ccc;
+            border:1px solid #ddd;
+        }
+        #pswd_info h4 {
+            margin:0 0 10px 0;
+            padding:0;
+            font-weight:normal;
+        }
+        #pswd_info::before {
+            content: "\25B2";
+            position:absolute;
+            top:-12px;
+            left:45%;
+            font-size:14px;
+            line-height:14px;
+            color:#ddd;
+            text-shadow:none;
+            display:block;
+        }
+        .invalid {
+            background:url(../images/invalid.png) no-repeat 0 50%;
+            padding-left:22px;
+            line-height:24px;
+            color:#ec3f41;
+        }
+        .valid {
+            background:url(../images/valid.png) no-repeat 0 50%;
+            padding-left:22px;
+            line-height:24px;
+            color:#3a7d34;
+        }
+        #pswd_info {
+            display:none;
+        }
+        #email_info{
+            display:none; 
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script>
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+        var z = document.getElementById("butn");
+
+        function register(){
+            x.style.left = "-420px";
+            y.style.left = "20px";
+            z.style.left = "140px";
+        }
+
+        function login(){
+            x.style.left = "20px";
+            y.style.left = "420px";
+            z.style.left = "0";
+        }
+
+
+        $(document).ready(function() {
+            //code here
+            $('input[type=password]').keyup(function() {
+                // keyup code here
+                var pswd = $(this).val();
+                //validate the length
+                if ( pswd.length < 8 ) {
+                    $('#length').removeClass('valid').addClass('invalid');
+                } else {
+                    $('#length').removeClass('invalid').addClass('valid');
+                }
+                //validate letter
+                if ( pswd.match(/[A-z]/) ) {
+                    $('#letter').removeClass('invalid').addClass('valid');
+                } else {
+                    $('#letter').removeClass('valid').addClass('invalid');
+                }
+
+                //validate capital letter
+                if ( pswd.match(/[A-Z]/) ) {
+                    $('#capital').removeClass('invalid').addClass('valid');
+                } else {
+                    $('#capital').removeClass('valid').addClass('invalid');
+                }
+
+                //validate number
+                if ( pswd.match(/\d/) ) {
+                    $('#number').removeClass('invalid').addClass('valid');
+                } else {
+                    $('#number').removeClass('valid').addClass('invalid');
+                }
+            }).focus(function() {
+                $('#pswd_info').show();
+            }).blur(function() {
+                $('#pswd_info').hide();
+            });
+
+            $('#employeeemail').keyup(function() {
+                
+                $("#email_info").show();
+            }).blur(function() {
+                $('#email_info').hide();
+            });   
+
+
+        });
+    </script>
+    
+</body>
+</html>

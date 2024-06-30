@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar menu With Sub-menus | Using HTML, CSS & JQuery</title>
+    <link rel="stylesheet" href="/static/CSS/homepage.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/CSS/chat.css">
+    <!-- <link rel="stylesheet" href="/static/CSS/home.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+  </head>
+
+  <style>
+
+body{
+  min-height: 100%;
+  background-image: url(/static/images/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}  
+    .navtop{
+      display: flex;
+      align-items: flex-start;
+    }
+    #cframe{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 90.2%;
+      width:81.7%;
+      border: none;
+      overflow: hidden;
+    }
+
+    .side-bar .menu{
+     /* width: 100%; */
+      height: 90%;
+      overflow: auto;
+       /* margin-top: 80px; */
+      }
+
+  </style>
+
+  <body>
+    <div class="nav">
+      <div class="nav-bg"></div> 
+      <div class="website-id">
+          <img src="/static/images/logo.jpeg" class="logo-img">
+          <a><b>MOTOKART</b></a>
+      </div>
+      <ul>
+          <li>
+            <a id="asearch" href="/customersearch" target="cframe">
+              <input type="text" id="search" placeholder="search">
+              <i class="bx bx-search icon"></i>
+            </a>
+              
+          </li>
+
+          <li>
+            <a href="/showwishlist" target="cframe">
+              <i class="bx bxs-cart icon"></i>
+              <span>Saved</span>
+            </a>  
+          </li>
+
+          <li>
+            <a href="/displaycategories" target="cframe">
+              <i class="bx bxs-category icon"></i>
+              <span>Categories</span>
+            </a>
+          </li> 
+          <li>
+            <a href='/selectforcomparision' target="cframe">
+              <i class="bx bxs-info-circle icon"></i>
+              <span>Comparison</span>
+            </a>  
+          </li>
+
+          <li>
+            <a href="/customerloginoptions"  target="cframe">
+              <i class="bx bxs-cog icon"></i>
+              <span>options</span>
+            </a>  
+          </li>
+          
+          <li>
+            <a href='/customerlogout' >
+              <i class="bx bxs-user icon"></i>
+              <span>Logout</span>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+
+    <div class="wrapper">
+    <div class="side-bar">
+      <div class="menu">
+        
+        {% for row in rows %}
+        <div class="item">
+          <a class="sub-btn" ><img src="/static/images/{{row.3}}" style="margin:5px 10px;" width="50" > {{row.1}} <i class="fas fa-angle-right dropdown"></i></a>
+          <div class="sub-menu">
+
+          </div>
+          <input class="category" type="hidden" value="/getsubcategoriesjson?categoryid={{row.0}}">
+        </div>  
+        {% endfor %}
+  </div>
+</div>
+</div>
+      </div>
+    </div>
+    </div>
+    <section class="main">
+      <!-- <h1>Sidebar Menu With<br>Sub-Menus</h1> -->
+      <iframe id="cframe" name="cframe" >
+      </iframe>
+    </section>
+
+    <!-- CHAT BAR BLOCK -->
+    <div class="chat-bar-collapsible">
+      <button id="chat-button" type="button" class="collapsible">
+          <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o">chat!</i>
+      </button>
+
+      <div class="content">
+          <div class="full-chat-block">
+              
+            <!-- Message Container -->
+              <div class="outer-container">
+                  <div class="chat-container">
+                      
+                    <!-- Messages -->
+                      <div id="chatbox">
+                          <h5 id="chat-timestamp"></h5>
+                          <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                      </div>
+
+                      <!-- User input box -->
+                      <div class="chat-bar-input-block">
+                          <div id="userInput">
+                              <input id="textInput" class="input-box" type="text" name="msg"
+                                  placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+                              <i id="chat-icon" style="color: rgb(248, 72, 72);" class="fa fa-fw fa-heart"
+                                  onclick="heartButton()"></i> 
+                              <i id="chat-icon" style="color: rgb(31, 8, 241);" class="fa fa-fw fa-send"
+                                  onclick="sendButton()"></i>
+                          </div>
+                      </div>
+
+                      <div id="chat-bar-bottom">
+                          <p></p>
+                      </div>
+
+                  </div>
+              </div>
+
+          </div>
+      </div>
+
+  </div>
+  </body>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      //jquery for toggle sub menus
+      $('.sub-btn').click(function(){
+        $(this).next('.sub-menu').slideToggle();
+        $(this).find('.dropdown').toggleClass('rotate');
+      });
+
+      //jquery for expand and collapse the sidebar
+      $('.menu-btn').click(function(){
+        $('.side-bar').addClass('active');
+        $('.menu-btn').css("visibility", "hidden");
+      });
+
+
+    $(".sub-btn").click(function(){
+      var current = $(this);
+      $(this).siblings(".sub-menu").empty()
+      // $(this).siblings(".sub-menu").append('<a href="#" class="sub-item">hIIIIIIIIIIIIIIII</a>');
+      $.getJSON($(this).siblings(".category").val(),{ajax:true},function(data){
+        console.log(data);
+        $.each(data,function(index,item){
+          console.log(index+"  index"+ item[2]+"   item" +  JSON.stringify(current) + "  current");
+          var submenuitem = '<a target="cframe" class="sub-item" href="/displayproducts?subcategoryid='+item[1]+'"><img width="50" src="/static/images/'+item[4]+' "> '+ item[2]+'</a>';
+          console.log('<a target="cframe" class="sub-item" href="/displayproducts?subcategoryid='+item[1]+'"><img src="/static/images/'+item[4]+'">'+item[2]+'</a>');
+          $(current).siblings(".sub-menu").append(submenuitem);
+          // JSON.stringify();
+          //  alert(current.html());
+        });
+      });
+    });
+    $('#search').keyup(function(){
+        var v = "/customersearch?pattern="+$('#search').val();
+          // $('#asearch').prop("href",v).click();
+          $("#asearch").attr("href",v);
+          $('#asearch').click();
+          // alert(v);
+          // alert($('#asearch').attr("href"));
+      });  
+    
+    });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/static/javascript/responses.js"></script>
+    <script src="/static/javascript/chat.js"></script>
+
+</html>
+

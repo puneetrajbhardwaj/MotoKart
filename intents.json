@@ -1,0 +1,91 @@
+{"intents": [
+    {
+        "tag": "greeting",
+        "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up"],
+        "responses": ["Hello!", "Hi there, how can I help?"],
+        "context_set": ""
+    },
+
+    {
+        "tag": "goodbye",
+        "patterns": ["cya", "See you later", "Goodbye", "I am Leaving", "Have a Good day"],
+        "responses": ["Hope you enjoyed our services", "Do visit us again"],
+        "context_set": ""
+    },
+
+    {
+        "tag": "shop",
+        "patterns": ["Id like to buy something", "whats on the menu", "what do you sell", "What are you selling", "What do you offer"],
+        "responses": ["We deal with all types of cars and bikes", "Cars and Bikes are on the menu!","We sell Super cars and Super bikes at affordable price"],
+        "context_set": ""
+    },
+    {
+        "tag": "hours",
+        "patterns": ["when are you guys open", "what are your hours", "hours of operation", "when do you serve", "When are your services available", "when are you available"],
+        "responses": ["As we are an E-Commerce firm, our services are available 24/7 throught the year"],
+        "context_set": ""
+    },
+
+    {
+        "tag": "customer care",
+        "patterns": ["I need to talk to customer care", "I need to talk to your company","who is your boss", "What is the Customer care number", "Customer Support"],
+        "responses":["You can talk to our customer support at - 1800 12345 TOLL FREE"],
+        "context_set": ""
+    },
+
+    {
+        "tag": "order_tracking",
+        "patterns": ["where is order with id 431B67?", "track order 562B78", "Where is my order with id 561A24?" ],
+        "responses": ["Delayed","Dispatched","On the Way!"],
+        "context": ""
+   },
+
+   {
+       "tag": "noanswer",
+       "patterns": [],
+       "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+       "context": ""
+   },
+
+   {
+       "tag": "thanks",
+       "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+       "responses": ["Happy to help!", "Any time!", "My pleasure"],
+       "context": ""
+   },
+   
+   {
+       "tag": "forgot_password",
+       "patterns": ["I forgot my Login password?","what to do when someone forgets Login password?","I forgot my Laptop password","Forgot Wifi password"],
+       "responses": ["Please enter your email id ,we will send a link on your email"],
+       "context": [""]
+   },
+   {
+       "tag": "email_id",
+       "patterns":["abx@gmail.com","abc@kiit.ac.in"],
+       "responses":["Link has been shared.Please change your password"],
+       "context": [""]
+   },
+
+   {
+       "tag": "highest_grossing",
+       "patterns": ["What is the highest grossing product?"],
+       "responses": ["Laptop with touch sensors and 360 rotation"],
+       "context": [""]
+   },
+
+   {
+       "tag": "predict_delay",
+       "patterns": ["why is order 23A12 delayed"],
+       "responses": ["delay is due to manufacuring","Delay is due to inavailable components"],
+       "context": [""]
+   },
+
+   {
+       "tag": "missing_id",
+       "patterns": ["where is the order","where is my order","locate the order","Delivery date of order"],
+       "responses": ["Please enter with order ID"],
+       "context": [""]
+   }
+]
+}

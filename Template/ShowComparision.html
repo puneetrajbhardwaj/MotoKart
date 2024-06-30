@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comaparision</title>
+</head>
+{{row2.}}
+    <div class="plan1">
+        <div class="plan-details">
+            <h1>{{row1.3}}</h1>
+        <ul>      
+            <li><img src="/static/images/{{row1.16}}" alt=""></li>
+            <li>Company:<span>{{row1.4}}</span></li>
+            <li>Engine :<span>{{row1.7}}</span></li>
+            <li>Power :<span>{{row1.8}} </span></li>
+            <li>Weight :<span> {{row1.12}}</span></li>
+            <li>Suspension :<span>{{row1.11}}</span></li>
+            <li>Speed Transmission :<span>{{row1.10}}</span></li>
+            <li>Displacement :<span>{{row1.9}}</span></li>
+            <li>Top Speed:<span>{{row1.13}}</span></li>
+        </ul>
+       </div>
+    <div class="price">
+        <p>{{row1.5}}</p>
+    </div>
+    </div>
+
+    <div class="plan2">
+        <div class="plan-details">
+            <h1>{{row2.3}}</h1>
+        <ul>       
+            <li><img src="/static/images/{{row2.16}}" alt=""></li>
+            <li>Company:<span>{{row2.4}}</span></li>
+            <li>Engine :<span>{{row2.7}}</span></li>
+            <li>Power :<span>{{row2.8}}</span></li>
+            <li>Weight :<span>{{row2.12}}</span></li>
+            <li>Suspension :<span>{{row2.11}}</span></li>
+            <li>Speed Transmission :<span>{{row2.10}}</span></li>
+            <li>Displacement:<span>{{row2.9}}</span></li>
+            <li>Top Speed:<span>{{row1.13}}</span></li>
+        </ul>
+     </div>
+    <div class="price">
+        <p>{{row2.5}}</p>
+    </div>
+  </div>
+
+</body>
+</html>
+
+<style>
+
+*{
+    margin:20px 15px 10px 15px;
+}
+
+body{
+    display:flex ;
+    justify-content: center;
+    text-align: center;
+    font-family: Arial;
+}
+
+.plan1,.plan2{
+    width:500px;
+    margin-right: 100px;
+    background: transparent;
+    backdrop-filter: blur(15px); 
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.plan1:hover,.plan2:hover{
+    transform: scale(1.1,1.06);
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+h1{
+    padding-top: 20px;
+    font-weight: 100;
+    color: white;
+}
+
+.plan-details > h1{
+    margin-top: 10px;
+    color: white;
+}
+
+ul{
+    text-align: left;
+    padding-left: 0px;
+}
+
+li{
+    font-size: 1.1rem;
+    color: #fff;
+    list-style: None;
+}
+
+.price{
+    font-size: 2rem;
+    color: #fff;
+}
+span{
+    font-size: 20px;
+}
+
+button{
+    font-size: 1.2rem;
+    color: white;
+    border:2px solid rgb(98,0,255);
+    border-radius: 10px;
+    background-color: rgb(98,0,255);
+    padding: 3px 20px 3px 20px;
+}
+
+button:hover{
+    box-shadow: 0 0 10px rgb(98,0,255);
+}
+
+li img{
+    width: 15rem;
+    height: 8rem;
+    border-radius: 50%;
+}
+
+</style>
